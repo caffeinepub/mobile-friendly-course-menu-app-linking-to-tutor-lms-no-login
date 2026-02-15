@@ -1,0 +1,176 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Mobile-first Tutor LMS course menu (no login)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a mobile-first responsive course menu app that opens Tutor LMS course links with no login/auth UI.",
+      "acceptanceCriteria": [
+        "App renders correctly on small screens (phone width) and desktop screens.",
+        "No login UI is present; users can access the course list immediately on load.",
+        "Each course in the menu has a clear action that opens the course content (e.g., open in a new tab or in-app view)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the main application shell with mobile-first layout (header + hero illustration + content), and render the course list immediately on load (no authentication UX). Use shadcn-ui components (e.g., Card, Button, Input) to provide consistent UI primitives; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "create",
+          "description": "Add a reusable responsive shell (max-width container, sticky header on mobile, spacing) used across list/detail/settings sections. Use shadcn-ui components where appropriate (e.g., Separator); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/courses/CourseCard.tsx",
+          "operation": "create",
+          "description": "Create a tappable, accessible course card optimized for small screens, with a clear primary action to open the Tutor LMS URL (new tab). Use shadcn-ui Card and Button to standardize interaction styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Wire the generated app icon as the favicon/app icon reference using frontend/public/assets/generated/app-icon.dim_512x512.png (and keep the existing responsive viewport meta)."
+        },
+        {
+          "path": "frontend/public/assets/generated/app-icon.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated asset file for the app icon so it can be referenced by the UI and HTML head."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-illustration.dim_1200x400.png",
+          "operation": "create",
+          "description": "Add the generated hero illustration asset file so it can be rendered in the app header/hero area."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Provide a course data source with manual defaults plus an optional remote JSON feed, and a settings UI to switch modes with safe manual default and robust error handling.",
+      "acceptanceCriteria": [
+        "Manual course list works out-of-the-box without requiring any external endpoint.",
+        "When a remote JSON feed URL is provided, the app attempts to fetch and render courses from that URL.",
+        "If remote fetch fails (network/CORS/invalid JSON), the UI shows a clear error state and allows returning to the manual list."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/courses/types.ts",
+          "operation": "create",
+          "description": "Define frontend-only course and data-source types (manual vs remote), including required fields (title, short description, optional thumbnail URL, course URL)."
+        },
+        {
+          "path": "frontend/src/features/courses/manualCourses.ts",
+          "operation": "create",
+          "description": "Provide a safe default manual course list configuration (English labels/content) that works out-of-the-box without any remote feed."
+        },
+        {
+          "path": "frontend/src/features/courses/courseDataSource.ts",
+          "operation": "create",
+          "description": "Implement the course loading logic to either return the manual list or attempt a remote JSON fetch (with validation and error mapping for network/CORS/invalid JSON), without assuming a specific Tutor LMS format beyond the configured fields."
+        },
+        {
+          "path": "frontend/src/components/settings/SettingsPanel.tsx",
+          "operation": "create",
+          "description": "Create a simple settings area that lets the user switch between 'Manual list' and 'Remote JSON feed' and enter a feed URL, with a clear error state and a one-click way to revert to the manual list. Use shadcn-ui components (e.g., Tabs or RadioGroup, Input, Alert) to provide consistent controls; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the settings panel into the app (e.g., via a Settings button in the header) and connect it to the course loading logic so switching modes updates the visible course list. Use shadcn-ui components (e.g., Dialog/Sheet for mobile-friendly settings) as needed; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add course browsing UX with title search, optional list/grid toggle, and a course detail view with a prominent 'Open course' action.",
+      "acceptanceCriteria": [
+        "User can filter the visible course list using a text search input.",
+        "Clicking a course opens a detail view with at least title and an 'Open course' action.",
+        "The 'Open course' action navigates to the configured Tutor LMS course URL reliably."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/courses/CourseSearchBar.tsx",
+          "operation": "create",
+          "description": "Add a search input that filters courses by title (case-insensitive) and is optimized for mobile entry. Use shadcn-ui Input for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/courses/ViewToggle.tsx",
+          "operation": "create",
+          "description": "Add an optional list/grid toggle control for browsing courses. Use shadcn-ui Toggle/ToggleGroup or Segmented control equivalent; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/courses/CourseList.tsx",
+          "operation": "create",
+          "description": "Render the filtered course collection in either list or grid mode, with touch-friendly spacing and thumbnails when provided; clicking a course opens the detail view."
+        },
+        {
+          "path": "frontend/src/components/courses/CourseDetail.tsx",
+          "operation": "create",
+          "description": "Create a course detail view showing title, description, optional thumbnail, and a prominent 'Open course' button that opens the configured Tutor LMS URL reliably (e.g., new tab). Use shadcn-ui Card and Button for consistent hierarchy; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire search, list/grid toggle, and navigation between list and detail views (in-app view state), ensuring mobile-friendly back navigation and no new top-level routes are required."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a cohesive warm education-themed visual design with consistent typography/spacing and a non-blue/non-purple primary palette.",
+      "acceptanceCriteria": [
+        "UI has a consistent theme across course list, course detail, and settings.",
+        "Primary color palette is not blue/purple.",
+        "Typography and spacing feel intentionally designed rather than default browser styles."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global styles and Tailwind CSS variables for a warm palette (e.g., amber/terracotta/neutral) and consistent typography/spacing, ensuring the primary color is not blue/purple. Keep styling centralized in this global entry point."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust theme defaults as needed to support the warm education theme (e.g., radius, shadows, and mapping to CSS variables) while keeping the palette non-blue/non-purple and consistent across components."
+        },
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "modify",
+          "description": "Apply consistent header/content spacing and render the hero illustration from frontend/public/assets/generated/hero-illustration.dim_1200x400.png in a responsive way appropriate for mobile/desktop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Persist the selected data source mode and remote feed URL locally so they survive reloads and are applied automatically.",
+      "acceptanceCriteria": [
+        "After refresh, the app retains the previously selected data source mode.",
+        "If a remote feed URL was entered, it is restored on reload and used again (unless user switches back to manual)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/settings/storage.ts",
+          "operation": "create",
+          "description": "Implement a small localStorage-backed persistence utility for the data source mode and remote feed URL (with safe defaults and basic validation)."
+        },
+        {
+          "path": "frontend/src/features/settings/usePersistedSettings.ts",
+          "operation": "create",
+          "description": "Create a React hook that loads persisted settings on startup and updates storage when the user changes mode or feed URL."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire persisted settings into app startup and course loading so the previously selected mode and URL are restored and used automatically, with a safe fallback to manual list."
+        },
+        {
+          "path": "frontend/src/components/settings/SettingsPanel.tsx",
+          "operation": "modify",
+          "description": "Bind settings controls to persisted state (mode + URL), and ensure the UI can recover cleanly by switching back to manual mode if remote fetch fails. Use shadcn-ui form controls consistently; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

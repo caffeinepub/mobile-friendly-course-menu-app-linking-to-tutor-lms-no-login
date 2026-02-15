@@ -1,0 +1,111 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-mobile-first-responsive-web-app-usable-on-android-ios-browsers-that-shows-a-simple-course-menu-and-lets-users-open-video-courses-hosted-on-an-existing-tutor-lms-site-without-any-login-authentication-flow",
+      "featureTitle": "Create a mobile-first, responsive web app (usable on Android/iOS browsers) that shows a simple course menu and lets users open video courses hosted on an existing Tutor LMS site, without any login/authentication flow.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/courses/CourseCard.tsx",
+        "frontend/src/components/layout/AppShell.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-course-data-source-that-supports-a-a-manual-course-list-configuration-title-short-description-thumbnail-url-optional-tutor-lms-course-url-and-b-an-optional-remote-json-feed-url-to-fetch-courses-if-the-tutor-lms-site-exposes-a-public-endpoint-provide-a-simple-settings-area-in-the-ui-to-switch-between-manual-list-and-remote-feed-with-safe-defaults-to-manual-list",
+      "featureTitle": "Implement a course data source that supports: (a) a manual course list configuration (title, short description, thumbnail URL optional, Tutor LMS course URL), and (b) an optional remote JSON feed URL to fetch courses if the Tutor LMS site exposes a public endpoint; provide a simple settings area in the UI to switch between manual list and remote feed (with safe defaults to manual list).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/settings/SettingsPanel.tsx",
+        "frontend/src/features/courses/courseDataSource.ts",
+        "frontend/src/features/courses/manualCourses.ts",
+        "frontend/src/features/courses/types.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-simple-course-browsing-ux-search-by-course-title-basic-list-grid-toggle-optional-and-a-course-detail-view-that-shows-course-metadata-and-a-prominent-button-to-open-the-tutor-lms-course-url",
+      "featureTitle": "Add a simple course browsing UX: search by course title, basic list/grid toggle (optional), and a course detail view that shows course metadata and a prominent button to open the Tutor LMS course URL.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/courses/CourseDetail.tsx",
+        "frontend/src/components/courses/CourseList.tsx",
+        "frontend/src/components/courses/CourseSearchBar.tsx",
+        "frontend/src/components/courses/ViewToggle.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-cohesive-visual-theme-colors-typography-spacing-and-component-styling-suitable-for-an-education-course-catalog-app-and-use-it-consistently-across-all-screens-avoid-a-blue-purple-primary-palette",
+      "featureTitle": "Apply a cohesive visual theme (colors, typography, spacing, and component styling) suitable for an education/course catalog app, and use it consistently across all screens. Avoid a blue/purple primary palette.",
+      "files": [
+        "frontend/src/components/layout/AppShell.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-store-the-user-s-selected-data-source-mode-manual-vs-remote-feed-and-if-used-the-remote-feed-url-locally-on-the-device-so-it-persists-across-reloads",
+      "featureTitle": "Store the user’s selected data source mode (manual vs remote feed) and, if used, the remote feed URL locally on the device so it persists across reloads.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/settings/SettingsPanel.tsx",
+        "frontend/src/features/settings/storage.ts",
+        "frontend/src/features/settings/usePersistedSettings.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

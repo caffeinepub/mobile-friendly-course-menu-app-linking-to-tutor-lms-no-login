@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Cross-platform (Android + iOS) simple mobile app that lists and opens video courses from Tutor LMS, with no user login and a basic course menu.",
+  "architectural_notes": [
+    "Tutor LMS is the source of truth for course catalog/video content.",
+    "App will be designed to function without user authentication."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Simple education app icon, flat design, warm palette (app-icon.dim_512x512.png)\n- Minimal header/hero illustration with abstract learning motifs, warm palette (hero-illustration.dim_1200x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-mobile-first-responsive-web-app-usable-on-android-ios-browsers-that-shows-a-simple-course-menu-and-lets-users-open-video-courses-hosted-on-an-existing-tutor-lms-site-without-any-login-authentication-flow",
+      "title": "Create a mobile-first, responsive web app (usable on Android/iOS browsers) that shows a simple course menu and lets users open video courses hosted on an existing Tutor LMS site, without any login/authentication flow.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-course-data-source-that-supports-a-a-manual-course-list-configuration-title-short-description-thumbnail-url-optional-tutor-lms-course-url-and-b-an-optional-remote-json-feed-url-to-fetch-courses-if-the-tutor-lms-site-exposes-a-public-endpoint-provide-a-simple-settings-area-in-the-ui-to-switch-between-manual-list-and-remote-feed-with-safe-defaults-to-manual-list",
+      "title": "Implement a course data source that supports: (a) a manual course list configuration (title, short description, thumbnail URL optional, Tutor LMS course URL), and (b) an optional remote JSON feed URL to fetch courses if the Tutor LMS site exposes a public endpoint; provide a simple settings area in the UI to switch between manual list and remote feed (with safe defaults to manual list).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-course-browsing-ux-search-by-course-title-basic-list-grid-toggle-optional-and-a-course-detail-view-that-shows-course-metadata-and-a-prominent-button-to-open-the-tutor-lms-course-url",
+      "title": "Add a simple course browsing UX: search by course title, basic list/grid toggle (optional), and a course detail view that shows course metadata and a prominent button to open the Tutor LMS course URL.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-colors-typography-spacing-and-component-styling-suitable-for-an-education-course-catalog-app-and-use-it-consistently-across-all-screens-avoid-a-blue-purple-primary-palette",
+      "title": "Apply a cohesive visual theme (colors, typography, spacing, and component styling) suitable for an education/course catalog app, and use it consistently across all screens. Avoid a blue/purple primary palette.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-store-the-user-s-selected-data-source-mode-manual-vs-remote-feed-and-if-used-the-remote-feed-url-locally-on-the-device-so-it-persists-across-reloads",
+      "title": "Store the user’s selected data source mode (manual vs remote feed) and, if used, the remote feed URL locally on the device so it persists across reloads.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a simple mobile app for both Android and iOS",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Integrate with Tutor LMS to fetch/display existing video courses",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "No-login experience (app usable without authentication)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Simple menu/UI listing Tutor LMS courses and linking/opening course content",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Mobile-friendly course menu app linking to Tutor LMS (no login)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

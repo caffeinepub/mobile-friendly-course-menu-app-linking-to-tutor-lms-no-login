@@ -1,0 +1,104 @@
+{
+  "kind": "build_request",
+  "title": "Mobile-friendly course menu app linking to Tutor LMS (no login)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a mobile-first, responsive web app (usable on Android/iOS browsers) that shows a simple course menu and lets users open video courses hosted on an existing Tutor LMS site, without any login/authentication flow.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Czesc, chciałbym stworzyć prosta aplikacje na androida, i iPhona ... bez żadnego logowania proste menu z kursami odnoszącymi się do tutor lms"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App renders correctly on small screens (phone width) and desktop screens.",
+        "No login UI is present; users can access the course list immediately on load.",
+        "Each course in the menu has a clear action that opens the course content (e.g., open in a new tab or in-app view)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a course data source that supports: (a) a manual course list configuration (title, short description, thumbnail URL optional, Tutor LMS course URL), and (b) an optional remote JSON feed URL to fetch courses if the Tutor LMS site exposes a public endpoint; provide a simple settings area in the UI to switch between manual list and remote feed (with safe defaults to manual list).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "...łączenie kursow wideo z platformy tutor lms gdzie aktualnie są kursy ... proste menu z kursami odnoszącymi się do tutor lms"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Manual course list works out-of-the-box without requiring any external endpoint.",
+        "When a remote JSON feed URL is provided, the app attempts to fetch and render courses from that URL.",
+        "If remote fetch fails (network/CORS/invalid JSON), the UI shows a clear error state and allows returning to the manual list."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a simple course browsing UX: search by course title, basic list/grid toggle (optional), and a course detail view that shows course metadata and a prominent button to open the Tutor LMS course URL.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can filter the visible course list using a text search input.",
+        "Clicking a course opens a detail view with at least title and an 'Open course' action.",
+        "The 'Open course' action navigates to the configured Tutor LMS course URL reliably."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a cohesive visual theme (colors, typography, spacing, and component styling) suitable for an education/course catalog app, and use it consistently across all screens. Avoid a blue/purple primary palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "UI has a consistent theme across course list, course detail, and settings.",
+        "Primary color palette is not blue/purple.",
+        "Typography and spacing feel intentionally designed rather than default browser styles."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Store the user’s selected data source mode (manual vs remote feed) and, if used, the remote feed URL locally on the device so it persists across reloads.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After refresh, the app retains the previously selected data source mode.",
+        "If a remote feed URL was entered, it is restored on reload and used again (unless user switches back to manual)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not add any login/authentication requirements.",
+    "Use English for any user-facing text included in the build request artifacts (e.g., default UI labels).",
+    "Do not edit files under frontend/immutablePaths; compose existing UI components instead."
+  ],
+  "nonGoals": [
+    "Building native mobile apps with React Native or publishing to App Store / Google Play.",
+    "Integrating third-party authentication providers.",
+    "Assuming a specific Tutor LMS API endpoint format without user-provided details (the remote feed is configurable)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Simple education app icon, flat design, warm palette (app-icon.dim_512x512.png)",
+      "Minimal header/hero illustration with abstract learning motifs, warm palette (hero-illustration.dim_1200x400.png)"
+    ],
+    "edits": []
+  }
+}

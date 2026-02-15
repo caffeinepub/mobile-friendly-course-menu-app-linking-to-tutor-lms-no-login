@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main application component that orchestrates course browsing with search, view toggle, course detail navigation, and settings panel integration using React Query and theme provider.",
+  "frontend/src/components/layout/AppShell.tsx": "Responsive layout shell with sticky header, hero section with illustration, main content area, and footer with social links and attribution.",
+  "frontend/src/components/courses/CourseCard.tsx": "Reusable course card component supporting both grid and list view modes with thumbnail, title, description, and external link action.",
+  "frontend/src/components/courses/CourseList.tsx": "Course list container that renders courses in grid or list layout with loading, error, and empty states, now with correct BookOpen icon import.",
+  "frontend/src/components/courses/CourseDetail.tsx": "Full course detail view displaying course information, thumbnail, and prominent call-to-action to open the course in a new tab.",
+  "frontend/src/components/courses/CourseSearchBar.tsx": "Search input component with clear button for filtering courses by title or description.",
+  "frontend/src/components/courses/ViewToggle.tsx": "Toggle control for switching between grid and list view modes using shadcn ToggleGroup.",
+  "frontend/src/components/settings/SettingsPanel.tsx": "Settings sheet panel for configuring data source mode (manual vs remote) with URL input, validation, and error recovery options.",
+  "frontend/src/features/courses/types.ts": "TypeScript type definitions for Course, DataSourceMode, and CourseSettings interfaces.",
+  "frontend/src/features/courses/manualCourses.ts": "Default manual course list with six sample courses including titles, descriptions, URLs, and thumbnail images.",
+  "frontend/src/features/courses/courseDataSource.ts": "Data fetching logic that loads courses from either manual list or remote JSON feed with error handling and validation.",
+  "frontend/src/features/settings/storage.ts": "LocalStorage persistence utilities for loading and saving course settings with safe defaults.",
+  "frontend/src/features/settings/usePersistedSettings.ts": "React hook for managing persisted settings state with automatic localStorage synchronization.",
+  "frontend/src/hooks/useQueries.ts": "React Query hook for fetching courses based on persisted settings with caching and error handling.",
+  "frontend/src/index.css": "Global styles with warm terracotta/amber OKLCH color palette for education theme in both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom font families, extended color tokens, border radius, and shadow utilities for the warm education theme.",
+  "frontend/index.html": "HTML entry point with app icon favicon, SEO meta tags, and responsive viewport configuration."
+}
